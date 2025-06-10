@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\MenuController;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
@@ -44,6 +45,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'verified']], fu
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('categories', ProductCategoryController::class);
     Route::resource('products', ProductController::class);
+    Route::resource('menus', MenuController::class);
 });
 
 Route::middleware(['auth'])->group(function () {
